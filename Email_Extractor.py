@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[30]:
 
 
 import json
@@ -125,9 +121,6 @@ def change_organisation(org_num):
     time.sleep(5)
 
 
-# In[39]:
-
-
 load_config()
 mode = 1
 
@@ -197,14 +190,8 @@ print("\rFound page, do not click anything on the webpage from now on.")
 time.sleep(10)
 
 
-# In[36]:
-
-
 urr = "https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q="
 browser.get(urr+"33")
-
-
-# In[60]:
 
 
 qq = wait_until_found("#searchInputField",10)
@@ -220,9 +207,6 @@ while(flag==1):
         flag=0
 
 
-# In[ ]:
-
-
 urr = "https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q="
 aaa = config['keys']
 ans = []
@@ -231,7 +215,6 @@ for a in aa:
     for i in range(1,10):
         lol = a+"000"+str(i)
         browser.get(urr+lol)
-        while(text.find("We couldn't find any results for")==-1 and text.find("More people")!=-1)
         time.sleep(1)
         text = str(browser.page_source)
         emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", text)
@@ -273,22 +256,8 @@ for a in aa:
           break
 ans
 
-
-# In[ ]:
-
-
 import pandas as pd
 data = pd.DataFrame(ans)
-
-
-# In[ ]:
-
-
 data.columns = ['Rno','Name','Email']
-
-
-# In[ ]:
-
-
 data.to_csv('data.csv')
 
