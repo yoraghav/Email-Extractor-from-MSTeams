@@ -191,13 +191,14 @@ time.sleep(10)
 
 
 urr = "https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q="
-browser.get(urr+"33")
+browser.get(urr+"qqqqqqqqqqq")
 
 
 qq = wait_until_found("#searchInputField",10)
 qq.click()
 qq.send_keys(Keys.ENTER)
-browser.get("https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q=20EC30053")
+time.sleep(1)
+browser.get("https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q=20EC10064") #change this only if youre raghav lol
 flag=1
 while(flag==1):
     time.sleep(1)
@@ -206,11 +207,11 @@ while(flag==1):
     if(len(emails)>1):
         flag=0
 
-
 urr = "https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q="
-aaa = config['keys']
+aa = config['keys']
 ans = []
 for a in aa:
+    print("extracting for "+a)
     trig=0
     for i in range(1,10):
         lol = a+"000"+str(i)
@@ -256,8 +257,22 @@ for a in aa:
           break
 ans
 
+
+# In[ ]:
+
+
 import pandas as pd
 data = pd.DataFrame(ans)
+
+
+# In[ ]:
+
+
 data.columns = ['Rno','Name','Email']
+
+
+# In[ ]:
+
+
 data.to_csv('data.csv')
 
